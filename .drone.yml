@@ -4,8 +4,6 @@ name: armhf-raspbian-buster
 platform:
   os: linux
   arch: arm
-image_pull_secrets:
-- dockerconfigjson
 steps:
 - name: fetch
   image: arm32v6/alpine
@@ -20,6 +18,7 @@ steps:
       from_secret: CLOUDSMITH_API_KEY
   settings:
       repo: openhd/qopenhd
+      from_secret: dockerauth
       dry_run: true
       dockerfile: Dockerfile-armhf-raspbian-buster
       build_args_from_env:
@@ -31,8 +30,6 @@ name: arm64-debian-buster
 platform:
   os: linux
   arch: arm64
-image_pull_secrets:
-- dockerconfigjson
 steps:
 - name: fetch
   image: arm64v8/alpine
@@ -47,6 +44,7 @@ steps:
       from_secret: CLOUDSMITH_API_KEY
   settings:
       repo: openhd/qopenhd
+      from_secret: dockerauth      
       dry_run: true
       dockerfile: Dockerfile-arm64-debian-buster
       build_args_from_env:
@@ -58,8 +56,6 @@ name: arm64-ubuntu-bionic
 platform:
   os: linux
   arch: arm64
-image_pull_secrets:
-- dockerconfigjson
 steps:
 - name: fetch
   image: arm64v8/alpine
@@ -74,6 +70,7 @@ steps:
       from_secret: CLOUDSMITH_API_KEY
   settings:
       repo: openhd/qopenhd
+      from_secret: dockerauth      
       dry_run: true
       dockerfile: Dockerfile-arm64-ubuntu-bionic
       build_args_from_env:
