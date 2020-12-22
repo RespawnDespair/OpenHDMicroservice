@@ -7,6 +7,9 @@ platform:
 steps:
 - name: fetch
   image: arm32v6/alpine
+  settings:
+      config:
+        from_secret: dockerauth
   commands:
   - apk add git
   - git fetch --tags
@@ -18,7 +21,8 @@ steps:
       from_secret: CLOUDSMITH_API_KEY
   settings:
       repo: openhd/qopenhd
-      from_secret: dockerauth
+      config:
+        from_secret: dockerauth
       dry_run: true
       dockerfile: Dockerfile-armhf-raspbian-buster
       build_args_from_env:
@@ -33,6 +37,9 @@ platform:
 steps:
 - name: fetch
   image: arm64v8/alpine
+  settings:
+      config:
+        from_secret: dockerauth
   commands:
   - apk add git
   - git fetch --tags
@@ -44,7 +51,8 @@ steps:
       from_secret: CLOUDSMITH_API_KEY
   settings:
       repo: openhd/qopenhd
-      from_secret: dockerauth      
+      config:
+        from_secret: dockerauth
       dry_run: true
       dockerfile: Dockerfile-arm64-debian-buster
       build_args_from_env:
@@ -59,6 +67,9 @@ platform:
 steps:
 - name: fetch
   image: arm64v8/alpine
+  settings:
+      config:
+        from_secret: dockerauth  
   commands:
   - apk add git
   - git fetch --tags
@@ -70,7 +81,8 @@ steps:
       from_secret: CLOUDSMITH_API_KEY
   settings:
       repo: openhd/qopenhd
-      from_secret: dockerauth      
+      config:
+        from_secret: dockerauth
       dry_run: true
       dockerfile: Dockerfile-arm64-ubuntu-bionic
       build_args_from_env:
